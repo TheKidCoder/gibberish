@@ -146,7 +146,6 @@ module Gibberish
       c.auth_data = adata
       ct = c.update(plaintext) + c.final
       tag = c.auth_tag
-      binding.pry
       ct = ct + tag
       out = {
         v: @opts[:v], adata: adata, ks: @opts[:ks], ct: Base64.strict_encode64(ct).encode('utf-8'), ts: tag.length * 8,
